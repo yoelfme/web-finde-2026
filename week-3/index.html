@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo de elementos HTML</title>
+</head>
+<body>
+    <header>
+        <h1>Demo de elementos HTML</h1>
+        <p>Página simple para practicar varios elementos de HTML.</p>
+        <nav>
+            <a href="#texto">Texto</a> |
+            <a href="#listas">Listas</a> |
+            <a href="#tabla">Tabla</a> |
+            <a href="#multimedia">Multimedia</a> |
+            <a href="#formulario">Formulario</a> |
+            <a href="#dialogo">Diálogo</a>
+        </nav>
+    </header>
+
+    <hr>
+
+    <main>
+        <section id="texto">
+            <h2>Texto y tipografía</h2>
+            <p>
+                Este es un párrafo normal. Puedes usar
+                <strong>texto en negrita</strong>,
+                <em>texto en cursiva</em>,
+                <mark>texto resaltado</mark>,
+                <small>texto pequeño</small> y
+                <code>código en línea</code>.
+            </p>
+            <blockquote>
+                "El HTML estructura el contenido de una página web."
+            </blockquote>
+            <pre>
+function saludo() {
+  console.log("Hola mundo");
+}
+            </pre>
+        </section>
+
+        <section id="listas">
+            <h2>Listas</h2>
+            <h3>Lista desordenada</h3>
+            <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+            </ul>
+
+            <h3>Lista ordenada</h3>
+            <ol>
+                <li>Abrir el editor</li>
+                <li>Escribir el HTML</li>
+                <li>Abrir en el navegador</li>
+            </ol>
+
+            <h3>Lista de definiciones</h3>
+            <dl>
+                <dt>HTML</dt>
+                <dd>Lenguaje de marcado para estructurar páginas web.</dd>
+                <dt>CSS</dt>
+                <dd>Lenguaje para dar estilos al contenido.</dd>
+            </dl>
+        </section>
+
+        <section id="tabla">
+            <h2>Tabla</h2>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Edad</th>
+                        <th>Ciudad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ana</td>
+                        <td>25</td>
+                        <td>Guatemala</td>
+                    </tr>
+                    <tr>
+                        <td>Luis</td>
+                        <td>30</td>
+                        <td>Antigua</td>
+                    </tr>
+                    <tr>
+                        <td>María</td>
+                        <td>22</td>
+                        <td>Quetzaltenango</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="multimedia">
+            <h2>Multimedia y otros elementos</h2>
+            <figure>
+                <img src="logo.webp" alt="Logo de ejemplo" width="200" height="200">
+                <figcaption>Figura con imagen y descripción.</figcaption>
+            </figure>
+
+            <p>
+                Enlace externo:
+                <a href="https://developer.mozilla.org/es/docs/Web/HTML" target="_blank" rel="noopener noreferrer">
+                    Documentación de HTML en MDN
+                </a>
+            </p>
+
+            <details>
+                <summary>Haz clic para ver más información</summary>
+                <p>El elemento details permite mostrar y ocultar contenido.</p>
+            </details>
+
+            <p>Progreso: <progress value="70" max="100">70%</progress></p>
+            <p>Medidor: <meter value="0.6" min="0" max="1">60%</meter></p>
+        </section>
+
+        <section id="formulario">
+            <h2>Formulario</h2>
+            <form action="#" method="post">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre">
+                <br><br>
+
+                <label for="correo">Correo:</label>
+                <input type="email" id="correo" name="correo" required>
+                <br><br>
+
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" name="password">
+                <br><br>
+
+                <label for="ciudad">Ciudad:</label>
+                <select id="ciudad" name="ciudad">
+                    <option value="guatemala">Guatemala</option>
+                    <option value="antigua">Antigua</option>
+                    <option value="xela">Quetzaltenango</option>
+                </select>
+                <br><br>
+
+                <fieldset>
+                    <legend>Nivel</legend>
+                    <label>
+                        <input type="radio" name="nivel" value="basico" checked>
+                        Básico
+                    </label>
+                    <label>
+                        <input type="radio" name="nivel" value="intermedio">
+                        Intermedio
+                    </label>
+                </fieldset>
+                <br>
+
+                <label>
+                    <input type="checkbox" name="acepto" value="si">
+                    Acepto los términos
+                </label>
+                <br><br>
+
+                <label for="mensaje">Mensaje:</label>
+                <br>
+                <textarea id="mensaje" name="mensaje" rows="4" cols="30" placeholder="Escribe tu mensaje"></textarea>
+                <br><br>
+
+                <button type="submit">Enviar</button>
+                <button type="reset">Limpiar</button>
+            </form>
+        </section>
+
+        <section id="dialogo">
+            <h2>Diálogo</h2>
+            <button command="show-modal" commandfor="my-dialog">Abrir diálogo</button>
+
+            <dialog id="my-dialog">
+                <h3>Mi diálogo</h3>
+                <p>Este es un ejemplo del elemento dialog en HTML.</p>
+                <button command="close" commandfor="my-dialog">Cerrar</button>
+            </dialog>
+        </section>
+
+        <aside>
+            <h2>Nota</h2>
+            <p>Esta página usa elementos semánticos como header, nav, main, section, aside y footer.</p>
+        </aside>
+    </main>
+
+    <hr>
+
+    <footer>
+        <p>Curso de Web &mdash; Semana 3 &mdash; Demo de elementos HTML</p>
+    </footer>
+</body>
+</html>

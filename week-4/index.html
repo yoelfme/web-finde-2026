@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark light">
+    <meta name="description" content="ORBITA X - a one page CSS showcase: flexbox, grid, animations, media queries and more.">
+    <title>ORBITA X &middot; CSS Techniques Showcase</title>
+
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="assets/favicon.ico">
+</head>
+
+<body id="top">
+
+    <!-- Pure CSS state holders. No JavaScript is used anywhere on this page. -->
+    <input type="checkbox" id="theme-switch" class="sr-only">
+    <input type="checkbox" id="nav-switch" class="sr-only">
+
+    <!-- Scroll driven progress bar (animation-timeline) -->
+    <div class="scroll-progress" aria-hidden="true"></div>
+
+    <header class="site-header">
+        <a class="brand" href="#top">ORBITA<span class="brand__x">X</span></a>
+
+        <nav class="nav" aria-label="Main">
+            <ul class="nav__list">
+                <li><a href="#countdown">Launch</a></li>
+                <li><a href="#fleet">Fleet</a></li>
+                <li><a href="#tech">Tech</a></li>
+                <li><a href="#missions">Missions</a></li>
+                <li><a href="#reference">Reference</a></li>
+                <li><a href="#apply" class="nav__cta">Apply</a></li>
+            </ul>
+        </nav>
+
+        <label for="theme-switch" class="theme-toggle" title="Toggle light / dark theme">
+            <span class="theme-toggle__knob"></span>
+            <span class="sr-only">Toggle theme</span>
+        </label>
+
+        <label for="nav-switch" class="burger" title="Menu">
+            <span class="burger__bar"></span>
+            <span class="sr-only">Open menu</span>
+        </label>
+    </header>
+
+    <main>
+
+        <!-- ============ 1. HERO: gradients, keyframes, transforms ============ -->
+        <section class="hero" id="hero">
+            <div class="stars stars--far" aria-hidden="true"></div>
+            <div class="stars stars--mid" aria-hidden="true"></div>
+            <div class="stars stars--near" aria-hidden="true"></div>
+            <div class="aurora" aria-hidden="true"></div>
+
+            <div class="hero__inner">
+                <div class="hero__copy">
+                    <p class="eyebrow">Mission 04 &middot; Cascading Style Sheets</p>
+                    <h1 class="hero__title">
+                        Making the web<br>
+                        <span class="hero__title-accent">multiplanetary</span>
+                    </h1>
+                    <p class="hero__lead">
+                        Every section below is a live demo of a different CSS capability:
+                        flexbox, grid, custom properties, keyframe animation, transforms,
+                        pseudo elements, container queries and media queries. Zero JavaScript.
+                    </p>
+                    <div class="hero__actions">
+                        <a class="btn btn--primary" href="#countdown">Watch the launch</a>
+                        <a class="btn btn--ghost" href="#reference">CSS reference</a>
+                    </div>
+                    <ul class="chips" aria-label="Techniques used here">
+                        <li class="chip" data-status="live">@keyframes</li>
+                        <li class="chip" data-status="live">linear-gradient</li>
+                        <li class="chip" data-status="live">clip-path</li>
+                        <li class="chip" data-status="live">transform</li>
+                    </ul>
+                </div>
+
+                <!-- Launch pad: the checkbox drives the whole animation -->
+                <div class="launchpad">
+                    <input type="checkbox" id="ignition" class="sr-only">
+
+                    <div class="launchpad__scene">
+                        <div class="rocket" aria-hidden="true">
+                            <div class="rocket__fin rocket__fin--left"></div>
+                            <div class="rocket__fin rocket__fin--right"></div>
+                            <div class="rocket__body">
+                                <span class="rocket__window"></span>
+                                <span class="rocket__stripe"></span>
+                            </div>
+                            <div class="rocket__flame"><span></span></div>
+                            <div class="rocket__smoke">
+                                <span></span><span></span><span></span><span></span>
+                            </div>
+                        </div>
+                        <div class="pad" aria-hidden="true">
+                            <span class="pad__tower"></span>
+                        </div>
+                    </div>
+
+                    <label for="ignition" class="btn btn--ignite">
+                        <span class="btn__on">Ignite engines</span>
+                        <span class="btn__off">Abort &amp; recover</span>
+                    </label>
+                </div>
+            </div>
+
+            <a class="scroll-hint" href="#countdown" aria-label="Scroll down">
+                <span class="scroll-hint__mouse"></span>
+            </a>
+        </section>
+
+
+        <!-- ============ 2. COUNTDOWN + STATS: @property, counters, grid ============ -->
+        <section class="section section--tight" id="countdown">
+            <header class="section__head">
+                <h2 class="section__title">T&ndash;minus</h2>
+                <p class="section__sub">An animated counter built with <code>@property</code>,
+                    CSS counters and <code>steps()</code> timing &mdash; no script.</p>
+                <ul class="chips">
+                    <li class="chip">@property</li>
+                    <li class="chip">counter()</li>
+                    <li class="chip">steps()</li>
+                    <li class="chip">@supports</li>
+                </ul>
+            </header>
+
+            <div class="countdown">
+                <div class="countdown__digit"><span class="countdown__num"></span></div>
+                <p class="countdown__label">Seconds to liftoff</p>
+            </div>
+
+            <dl class="stats">
+                <div class="stat">
+                    <dt class="stat__label">Payload to LEO</dt>
+                    <dd class="stat__value">22 <small>t</small></dd>
+                </div>
+                <div class="stat">
+                    <dt class="stat__label">Thrust at sea level</dt>
+                    <dd class="stat__value">7 607 <small>kN</small></dd>
+                </div>
+                <div class="stat">
+                    <dt class="stat__label">Reflights</dt>
+                    <dd class="stat__value">418</dd>
+                </div>
+                <div class="stat">
+                    <dt class="stat__label">Landing accuracy</dt>
+                    <dd class="stat__value">99.4 <small>%</small></dd>
+                </div>
+            </dl>
+        </section>
+
+
+        <!-- ============ 3. FLEET: radio tabs (:checked + ~), 3D transforms ============ -->
+        <section class="section" id="fleet">
+            <header class="section__head">
+                <h2 class="section__title">The fleet</h2>
+                <p class="section__sub">Tabs made only with radio inputs, labels and the
+                    general sibling combinator.</p>
+                <ul class="chips">
+                    <li class="chip">:checked</li>
+                    <li class="chip">sibling ~</li>
+                    <li class="chip">perspective</li>
+                    <li class="chip">grid-template-areas</li>
+                </ul>
+            </header>
+
+            <div class="tabs">
+                <input type="radio" name="fleet" id="fleet-1" class="sr-only" checked>
+                <input type="radio" name="fleet" id="fleet-2" class="sr-only">
+                <input type="radio" name="fleet" id="fleet-3" class="sr-only">
+
+                <div class="tabs__bar" role="tablist">
+                    <label for="fleet-1" class="tabs__tab">Falcon 1</label>
+                    <label for="fleet-2" class="tabs__tab">Heavy Lift</label>
+                    <label for="fleet-3" class="tabs__tab">Starliner</label>
+                </div>
+
+                <div class="tabs__panels">
+                    <article class="panel panel--1">
+                        <div class="panel__art panel__art--one" aria-hidden="true"></div>
+                        <div class="panel__body">
+                            <h3>Falcon 1</h3>
+                            <p>A two stage workhorse for small satellites. The card layout uses
+                                <code>grid-template-areas</code> so the artwork and copy swap
+                                position on narrow screens.</p>
+                            <ul class="specs-inline">
+                                <li>Height <b>70 m</b></li>
+                                <li>Stages <b>2</b></li>
+                                <li>Reusable <b>Yes</b></li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="panel panel--2">
+                        <div class="panel__art panel__art--two" aria-hidden="true"></div>
+                        <div class="panel__body">
+                            <h3>Heavy Lift</h3>
+                            <p>Three cores, twenty seven engines. Hover the card to see a
+                                <code>perspective</code> based 3D tilt driven purely by
+                                <code>transform</code> and <code>transition</code>.</p>
+                            <ul class="specs-inline">
+                                <li>Height <b>117 m</b></li>
+                                <li>Boosters <b>3</b></li>
+                                <li>Reusable <b>Partial</b></li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="panel panel--3">
+                        <div class="panel__art panel__art--three" aria-hidden="true"></div>
+                        <div class="panel__body">
+                            <h3>Starliner</h3>
+                            <p>Fully reusable, built for crewed interplanetary transit. The
+                                background is a <code>conic-gradient</code> masked with
+                                <code>mix-blend-mode</code>.</p>
+                            <ul class="specs-inline">
+                                <li>Height <b>121 m</b></li>
+                                <li>Crew <b>100</b></li>
+                                <li>Reusable <b>Fully</b></li>
+                            </ul>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ============ 4. TECH: flexbox, container queries, filters ============ -->
+        <section class="section" id="tech">
+            <header class="section__head">
+                <h2 class="section__title">Onboard technology</h2>
+                <p class="section__sub">A responsive grid of cards. Each card is its own
+                    <em>container</em>, so the cards react to their own width instead of the
+                    viewport width.</p>
+                <ul class="chips">
+                    <li class="chip">@container</li>
+                    <li class="chip">auto-fit / minmax</li>
+                    <li class="chip">backdrop-filter</li>
+                    <li class="chip">:is() / :where()</li>
+                </ul>
+            </header>
+
+            <div class="tech-grid">
+                <article class="tech-card">
+                    <div class="tech-card__inner">
+                        <div class="tech-card__icon tech-card__icon--engine" aria-hidden="true"></div>
+                        <div class="tech-card__text">
+                            <h3>Raptor style engines</h3>
+                            <p>Full flow staged combustion. Icon drawn entirely with
+                                border-radius and gradients.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="tech-card">
+                    <div class="tech-card__inner">
+                        <div class="tech-card__icon tech-card__icon--shield" aria-hidden="true"></div>
+                        <div class="tech-card__text">
+                            <h3>Heat shield tiles</h3>
+                            <p>Hexagonal ceramic tiles rendered with <code>clip-path</code> and a
+                                repeating gradient.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="tech-card">
+                    <div class="tech-card__inner">
+                        <div class="tech-card__icon tech-card__icon--grid" aria-hidden="true"></div>
+                        <div class="tech-card__text">
+                            <h3>Grid fins</h3>
+                            <p>Hypersonic steering. The pattern is a single element using two
+                                <code>repeating-linear-gradient</code> layers.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="tech-card">
+                    <div class="tech-card__inner">
+                        <div class="tech-card__icon tech-card__icon--dish" aria-hidden="true"></div>
+                        <div class="tech-card__text">
+                            <h3>Laser link array</h3>
+                            <p>Inter satellite mesh. Pulsing ring animation via
+                                <code>::before</code> and <code>::after</code>.</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Telemetry: transitions and animated widths -->
+            <div class="telemetry">
+                <h3 class="telemetry__title">Live telemetry</h3>
+                <div class="meter" style="--fill: 92%">
+                    <span class="meter__label">Fuel &mdash; LOX</span>
+                    <span class="meter__track"><span class="meter__bar"></span></span>
+                </div>
+                <div class="meter" style="--fill: 74%">
+                    <span class="meter__label">Fuel &mdash; CH4</span>
+                    <span class="meter__track"><span class="meter__bar"></span></span>
+                </div>
+                <div class="meter" style="--fill: 58%">
+                    <span class="meter__label">Battery</span>
+                    <span class="meter__track"><span class="meter__bar"></span></span>
+                </div>
+                <div class="meter" style="--fill: 31%">
+                    <span class="meter__label">Downlink buffer</span>
+                    <span class="meter__track"><span class="meter__bar"></span></span>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ============ 5. MISSIONS: counters, ::before, nth-child ============ -->
+        <section class="section" id="missions">
+            <header class="section__head">
+                <h2 class="section__title">Mission log</h2>
+                <p class="section__sub">A timeline numbered by CSS counters. Odd and even items
+                    alternate sides using <code>:nth-child()</code>.</p>
+                <ul class="chips">
+                    <li class="chip">counter-increment</li>
+                    <li class="chip">:nth-child(odd)</li>
+                    <li class="chip">::before</li>
+                    <li class="chip">position: sticky</li>
+                </ul>
+            </header>
+
+            <ol class="timeline">
+                <li class="timeline__item">
+                    <time datetime="2026-02-11">11 Feb 2026</time>
+                    <h3>Static fire complete</h3>
+                    <p>Nine engines held down for 7 seconds at full throttle.</p>
+                </li>
+                <li class="timeline__item">
+                    <time datetime="2026-03-02">02 Mar 2026</time>
+                    <h3>Orbital insertion</h3>
+                    <p>Second stage delivered 22 t to a 550 km circular orbit.</p>
+                </li>
+                <li class="timeline__item">
+                    <time datetime="2026-04-19">19 Apr 2026</time>
+                    <h3>Droneship landing</h3>
+                    <p>Booster recovered 640 km downrange with 1.2 m accuracy.</p>
+                </li>
+                <li class="timeline__item">
+                    <time datetime="2026-06-30">30 Jun 2026</time>
+                    <h3>Crew rehearsal</h3>
+                    <p>Full dress rehearsal with four astronauts aboard.</p>
+                </li>
+            </ol>
+        </section>
+
+
+        <!-- ============ 6. GALLERY: scroll snap, conic-gradient, aspect-ratio ============ -->
+        <section class="section" id="gallery">
+            <header class="section__head">
+                <h2 class="section__title">Mission patches</h2>
+                <p class="section__sub">Drag or scroll sideways. The rail uses
+                    <code>scroll-snap-type</code>, <code>aspect-ratio</code> and a custom
+                    scrollbar.</p>
+                <ul class="chips">
+                    <li class="chip">scroll-snap</li>
+                    <li class="chip">conic-gradient</li>
+                    <li class="chip">::-webkit-scrollbar</li>
+                    <li class="chip">mix-blend-mode</li>
+                </ul>
+            </header>
+
+            <div class="rail">
+                <figure class="patch patch--a">
+                    <div class="patch__art" aria-hidden="true"></div>
+                    <figcaption>OX&ndash;01 <span>Pathfinder</span></figcaption>
+                </figure>
+                <figure class="patch patch--b">
+                    <div class="patch__art" aria-hidden="true"></div>
+                    <figcaption>OX&ndash;02 <span>Aurora</span></figcaption>
+                </figure>
+                <figure class="patch patch--c">
+                    <div class="patch__art" aria-hidden="true"></div>
+                    <figcaption>OX&ndash;03 <span>Helios</span></figcaption>
+                </figure>
+                <figure class="patch patch--d">
+                    <div class="patch__art" aria-hidden="true"></div>
+                    <figcaption>OX&ndash;04 <span>Perseus</span></figcaption>
+                </figure>
+                <figure class="patch patch--e">
+                    <div class="patch__art" aria-hidden="true"></div>
+                    <figcaption>OX&ndash;05 <span>Vanguard</span></figcaption>
+                </figure>
+            </div>
+        </section>
+
+
+        <!-- ============ 7. SPECS TABLE: table styling, sticky head, attr selectors ============ -->
+        <section class="section" id="specs">
+            <header class="section__head">
+                <h2 class="section__title">Vehicle specifications</h2>
+                <p class="section__sub">Striped rows with <code>:nth-child(even)</code>, a first
+                    column that stays pinned while you scroll sideways, and status pills selected
+                    by attribute.</p>
+                <ul class="chips">
+                    <li class="chip">[data-status]</li>
+                    <li class="chip">position: sticky</li>
+                    <li class="chip">overflow-x: auto</li>
+                    <li class="chip">border-collapse</li>
+                </ul>
+            </header>
+
+            <div class="table-wrap">
+                <table class="specs">
+                    <caption>All figures are expendable configuration values.</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Vehicle</th>
+                            <th scope="col">Height</th>
+                            <th scope="col">Mass</th>
+                            <th scope="col">Payload</th>
+                            <th scope="col">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Falcon 1</th>
+                            <td>70 m</td>
+                            <td>549 t</td>
+                            <td>22.8 t</td>
+                            <td><span class="pill" data-status="operational">Operational</span></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Heavy Lift</th>
+                            <td>117 m</td>
+                            <td>1 420 t</td>
+                            <td>63.8 t</td>
+                            <td><span class="pill" data-status="operational">Operational</span></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Starliner</th>
+                            <td>121 m</td>
+                            <td>5 000 t</td>
+                            <td>150 t</td>
+                            <td><span class="pill" data-status="testing">In testing</span></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Lunar Tug</th>
+                            <td>18 m</td>
+                            <td>96 t</td>
+                            <td>12 t</td>
+                            <td><span class="pill" data-status="retired">Retired</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+
+        <!-- ============ 8. REFERENCE: :target, multi-column, ::first-letter ============ -->
+        <section class="section" id="reference">
+            <header class="section__head">
+                <h2 class="section__title">Selector reference</h2>
+                <p class="section__sub">Click a name to jump &mdash; the highlight is the
+                    <code>:target</code> pseudo class reacting to the URL hash.</p>
+                <ul class="chips">
+                    <li class="chip">:target</li>
+                    <li class="chip">columns</li>
+                    <li class="chip">::first-letter</li>
+                    <li class="chip">::selection</li>
+                </ul>
+            </header>
+
+            <nav class="jumpbar" aria-label="Selector list">
+                <a href="#s-type">type</a>
+                <a href="#s-class">.class</a>
+                <a href="#s-id">#id</a>
+                <a href="#s-attr">[attr]</a>
+                <a href="#s-child">A &gt; B</a>
+                <a href="#s-adj">A + B</a>
+                <a href="#s-sib">A ~ B</a>
+                <a href="#s-not">:not()</a>
+                <a href="#s-has">:has()</a>
+                <a href="#s-nth">:nth-child()</a>
+            </nav>
+
+            <div class="reference">
+                <article class="term" id="s-type">
+                    <h3>Type selector</h3>
+                    <p>Matches every element of a tag name. <code>p { color: red }</code></p>
+                </article>
+                <article class="term" id="s-class">
+                    <h3>Class selector</h3>
+                    <p>Reusable hook, the workhorse of any stylesheet.
+                        <code>.btn { padding: 1rem }</code></p>
+                </article>
+                <article class="term" id="s-id">
+                    <h3>ID selector</h3>
+                    <p>Unique and very specific. Use sparingly.
+                        <code>#title { font-size: 3rem }</code></p>
+                </article>
+                <article class="term" id="s-attr">
+                    <h3>Attribute selector</h3>
+                    <p>Matches on attributes and their values.
+                        <code>[data-status="testing"] { color: gold }</code></p>
+                </article>
+                <article class="term" id="s-child">
+                    <h3>Child combinator</h3>
+                    <p>Only direct children. <code>nav &gt; ul { display: flex }</code></p>
+                </article>
+                <article class="term" id="s-adj">
+                    <h3>Adjacent sibling</h3>
+                    <p>The element immediately after another.
+                        <code>h2 + p { margin-top: 0 }</code></p>
+                </article>
+                <article class="term" id="s-sib">
+                    <h3>General sibling</h3>
+                    <p>Any later sibling. Powers every checkbox trick on this page.
+                        <code>input:checked ~ .panel { display: block }</code></p>
+                </article>
+                <article class="term" id="s-not">
+                    <h3>Negation</h3>
+                    <p>Everything except the argument.
+                        <code>li:not(:last-child) { border-bottom: 1px solid }</code></p>
+                </article>
+                <article class="term" id="s-has">
+                    <h3>Parent selector</h3>
+                    <p>Styles an element based on its contents.
+                        <code>label:has(input:checked) { color: cyan }</code></p>
+                </article>
+                <article class="term" id="s-nth">
+                    <h3>Structural pseudo class</h3>
+                    <p>Positional matching with a formula.
+                        <code>tr:nth-child(2n) { background: #111 }</code></p>
+                </article>
+            </div>
+
+            <div class="prose">
+                <h3>How the cascade decides</h3>
+                <p>When two rules touch the same property the browser compares origin, then
+                    layer, then specificity, then document order. Inline styles beat selectors,
+                    and <code>!important</code> flips the whole comparison on its head, which is
+                    exactly why it should stay a last resort. This paragraph is laid out with the
+                    multi column properties and its first letter is styled with a pseudo element,
+                    so the drop cap costs no extra markup at all. Cascade layers give you a way to
+                    order whole blocks of CSS on purpose instead of fighting specificity by
+                    accident.</p>
+            </div>
+        </section>
+
+
+        <!-- ============ 9. FAQ: details/summary, ::marker ============ -->
+        <section class="section" id="faq">
+            <header class="section__head">
+                <h2 class="section__title">Flight questions</h2>
+                <p class="section__sub">Native <code>&lt;details&gt;</code> elements with a custom
+                    <code>::marker</code> and animated content.</p>
+                <ul class="chips">
+                    <li class="chip">details[open]</li>
+                    <li class="chip">::marker</li>
+                    <li class="chip">transition</li>
+                </ul>
+            </header>
+
+            <div class="faq">
+                <details name="faq" open>
+                    <summary>Do I need JavaScript for any of this?</summary>
+                    <p>No. Tabs, the theme switch, the mobile menu, the accordion and the rocket
+                        launch are all state held by checkboxes and radio buttons and read back
+                        with <code>:checked</code>.</p>
+                </details>
+                <details name="faq">
+                    <summary>Why custom properties instead of a preprocessor?</summary>
+                    <p>Custom properties live in the cascade, so they can be redefined per theme,
+                        per media query or per component and everything downstream updates
+                        instantly.</p>
+                </details>
+                <details name="faq">
+                    <summary>How is the layout responsive?</summary>
+                    <p>Mostly without media queries: <code>grid-template-columns: repeat(auto-fit,
+                        minmax(...))</code>, <code>clamp()</code> typography and flex wrapping.
+                        Media queries only handle the navigation and a few spacing tweaks.</p>
+                </details>
+                <details name="faq">
+                    <summary>What about motion sensitivity?</summary>
+                    <p>Every animation is disabled inside a
+                        <code>@media (prefers-reduced-motion: reduce)</code> block.</p>
+                </details>
+            </div>
+        </section>
+
+
+        <!-- ============ 10. FORM: :focus-within, :valid, accent-color ============ -->
+        <section class="section" id="apply">
+            <header class="section__head">
+                <h2 class="section__title">Apply for a seat</h2>
+                <p class="section__sub">Form styling with validation states, a custom range
+                    slider, custom checkboxes and <code>:focus-within</code>.</p>
+                <ul class="chips">
+                    <li class="chip">:focus-within</li>
+                    <li class="chip">:valid / :invalid</li>
+                    <li class="chip">accent-color</li>
+                    <li class="chip">::placeholder</li>
+                </ul>
+            </header>
+
+            <form class="apply" action="#apply" novalidate>
+                <div class="field">
+                    <input type="text" id="name" name="name" placeholder=" " required minlength="3">
+                    <label for="name">Full name</label>
+                    <small class="field__hint">At least 3 characters.</small>
+                </div>
+
+                <div class="field">
+                    <input type="email" id="email" name="email" placeholder=" " required>
+                    <label for="email">Email</label>
+                    <small class="field__hint">We only accept a valid address.</small>
+                </div>
+
+                <div class="field field--full">
+                    <select id="role" name="role" required>
+                        <option value="">Preferred role</option>
+                        <option>Flight engineer</option>
+                        <option>Mission specialist</option>
+                        <option>Payload operator</option>
+                        <option>Passenger</option>
+                    </select>
+                </div>
+
+                <div class="field field--full">
+                    <label class="field__standalone" for="gforce">Tolerance to g-force</label>
+                    <input type="range" id="gforce" name="gforce" min="1" max="9" value="4">
+                </div>
+
+                <div class="field field--full">
+                    <textarea id="why" name="why" rows="4" placeholder=" "></textarea>
+                    <label for="why">Why you?</label>
+                </div>
+
+                <label class="check">
+                    <input type="checkbox" name="terms" required>
+                    <span>I accept the risks of orbital flight.</span>
+                </label>
+
+                <button class="btn btn--primary btn--wide" type="submit">Submit application</button>
+            </form>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="site-footer__grid">
+            <div>
+                <p class="brand brand--footer">ORBITA<span class="brand__x">X</span></p>
+                <p class="muted">A single page, a single stylesheet, no JavaScript.</p>
+            </div>
+            <nav aria-label="Footer">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="#fleet">Fleet</a></li>
+                    <li><a href="#tech">Technology</a></li>
+                    <li><a href="#missions">Missions</a></li>
+                </ul>
+            </nav>
+            <nav aria-label="Learn">
+                <h4>Learn</h4>
+                <ul>
+                    <li><a href="#reference">Selectors</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="basics.html">Week 4 basics</a></li>
+                </ul>
+            </nav>
+            <nav aria-label="External">
+                <h4>Docs</h4>
+                <ul>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank"
+                            rel="noopener">MDN CSS</a></li>
+                    <li><a href="https://web.dev/learn/css" target="_blank" rel="noopener">web.dev</a></li>
+                </ul>
+            </nav>
+        </div>
+        <p class="site-footer__legal">Built for UMG Web Development &middot; 2026</p>
+    </footer>
+
+</body>
+
+</html>
