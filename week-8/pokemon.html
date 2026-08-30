@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokédex</title>
+    <link rel="stylesheet" href="pokemon.css">
+</head>
+<body>
+    <main class="stage">
+        <header class="head">
+            <p class="eyebrow">Archivo</p>
+            <h1>Pokédex</h1>
+            <p class="lede">Nombre, peso e imagen de cada espécimen.</p>
+        </header>
+
+        <label class="search">
+            Buscar Pokémon
+            <input
+                type="search"
+                name="pokemon"
+                placeholder="Ejemplo: ditto"
+                autocomplete="off"
+                spellcheck="false"
+            >
+        </label>
+
+        <section class="dex" aria-label="Lista de Pokémon">
+            <article class="pokemon-card" data-name="ditto">
+                <div class="viewport">
+                    <img
+                        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/132.png"
+                        alt="ditto"
+                    >
+                </div>
+                <h2>ditto</h2>
+                <p class="weight"><span>Peso</span> 4.0 kg</p>
+            </article>
+
+            <article class="pokemon-card" data-name="pikachu">
+                <div class="viewport">
+                    <img
+                        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png"
+                        alt="pikachu"
+                    >
+                </div>
+                <h2>pikachu</h2>
+                <p class="weight"><span>Peso</span> 6.0 kg</p>
+            </article>
+
+            <article class="pokemon-card" data-name="bulbasaur">
+                <div class="viewport">
+                    <img
+                        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png"
+                        alt="bulbasaur"
+                    >
+                </div>
+                <h2>bulbasaur</h2>
+                <p class="weight"><span>Peso</span> 6.9 kg</p>
+            </article>
+
+            <article class="pokemon-card" data-name="charmander">
+                <div class="viewport">
+                    <img
+                        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png"
+                        alt="charmander"
+                    >
+                </div>
+                <h2>charmander</h2>
+                <p class="weight"><span>Peso</span> 8.5 kg</p>
+            </article>
+
+            <article class="pokemon-card" data-name="squirtle">
+                <div class="viewport">
+                    <img
+                        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png"
+                        alt="squirtle"
+                    >
+                </div>
+                <h2>squirtle</h2>
+                <p class="weight"><span>Peso</span> 9.0 kg</p>
+            </article>
+
+            <article class="pokemon-card" data-name="eevee">
+                <div class="viewport">
+                    <img
+                        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/133.png"
+                        alt="eevee"
+                    >
+                </div>
+                <h2>eevee</h2>
+                <p class="weight"><span>Peso</span> 6.5 kg</p>
+            </article>
+
+            <article class="pokemon-card pokemon-card--empty">
+                <div class="viewport viewport--empty" aria-hidden="true"></div>
+                <h2>Sin resultados</h2>
+                <p class="weight"><span>Peso</span> —</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

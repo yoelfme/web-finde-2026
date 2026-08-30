@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso</title>
+
+    <link rel="stylesheet" href="index.css">
+
+    <script src="index.js"></script>
+</head>
+<body>
+    <div class="stage">
+        <form id="form-login">
+            <header class="form-head">
+                <p class="eyebrow">Acceso</p>
+                <h1>Bienvenido</h1>
+                <p class="lede">Correo y una contraseña con mayúscula y número.</p>
+            </header>
+
+            <label>
+                Correo
+                <input type="email" name="email" placeholder="tu@correo.com" autocomplete="email">
+            </label>
+
+            <label>
+                Contraseña
+                <input
+                    type="text"
+                    name="password"
+                    required
+                    placeholder="Escribe tu contraseña"
+                    minlength="6"
+                    maxlength="20"
+                    pattern="(?=.*[A-Z])(?=.*[0-9]).*"
+                    autocomplete="current-password"
+                    title="Debe incluir al menos una mayúscula y un número"
+                >
+            </label>
+
+            <div id="password-requirements" aria-live="polite">
+                <p class="req-label">La contraseña debe</p>
+                <ul></ul>
+            </div>
+
+            <button type="submit">Ingresar</button>
+        </form>
+    </div>
+</body>
+</html>
